@@ -19,6 +19,9 @@ export async function apiCall(method, endpoint, data = null) {
     headers,
   };
 
+
+  
+
   if (data) {
     options.body = JSON.stringify(data);
   }
