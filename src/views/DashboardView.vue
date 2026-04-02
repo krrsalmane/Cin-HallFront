@@ -1,6 +1,10 @@
 <template>
   <div class="navbar">
-    <h1>FrontCin Hall - Admin Dashboard</h1>
+    <h1>FrontCin Hall</h1>
+    <nav class="nav-menu">
+      <RouterLink to="/" :class="{ active: $route.path === '/' }">Dashboard</RouterLink>
+      <RouterLink to="/films" :class="{ active: $route.path === '/films' }">Films</RouterLink>
+    </nav>
     <div>
       <span v-if="user">{{ user.name }}</span>
       <button @click="handleLogout">Logout</button>
@@ -126,6 +130,28 @@ const handleLogout = async () => {
 .navbar h1 {
   margin: 0;
   font-size: 24px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu a.active {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .navbar button {
